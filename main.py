@@ -34,7 +34,7 @@ while True:
     print("What would you like to do?")
     time.sleep(1)
     print("========================================")
-    time.sleep(1)
+    time.sleep(0.5)
     print("1. View tasks")
     time.sleep(0.5)
     print("2. Add a task")
