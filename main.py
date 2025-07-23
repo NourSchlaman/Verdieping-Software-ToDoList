@@ -1,63 +1,62 @@
 import random
 import time
+from tqdm import tqdm
+import functions
+import data
 
-tasks = [
-    {"id":1 ,"name": "1000 pushups", "priority": 8},
-    {"id":2 ,"name": "Heel veel aardbeien eten", "priority": 3},
-    {"id":3 ,"name": "afvallen", "priority": 10},
-]
+actions = {
+    "1": functions.view_tasks,
+    "2": functions.add_task,
+    "3": functions.remove_task,
+    "4": functions.exit_app
+}
 
-decisionMakingQuips = [
-    {"text": "Thank you for your Critical Decision Making", "retry": False},
-    {"text": "You thought long and hard about that decision", "retry": False},
-    {"text": "Are you sure about that?", "retry": False},
-    {"text": "hmmmm, interesting choice", "retry": False},
-    {"text": "You must have given that a lot of thought", "retry": False},
-    {"text": "I wouldn't have made that choice", "retry": False},
-    {"text": "NOOO PLEASE NOT THAT ONE", "retry": True},
-    {"text": "Sorry for the inconvenience, but that choice is not available at the moment", "retry": True},
-    {"text": "ERROR - Something went wrong", "retry": True}
-]
+if __name__ == "__main__":
 
-processingQuips = [
-    "Processing...",
-    "Lemme think about that one...",
-    "Hhmmm, this won't take long...",
-    "I'm thinking, one moment please...",
-    "Thinking..."
-]
-
-
-print("Welcome to your To-Do list Task Manager Tool")
-time.sleep(1)
-while True:
-    print("What would you like to do?")
+# This is the welcome message, and the list options
+    print("Welcome to your To-Do list Task Manager Tool")
     time.sleep(1)
-    print("========================================")
-    time.sleep(0.5)
-    print("1. View tasks")
-    time.sleep(0.5)
-    print("2. Add a task")
-    time.sleep(0.5)
-    print("3. Remove a task")
-    time.sleep(0.5)
-    print("4. Exit")
-    time.sleep(0.5)
+    while True:
+        print("What would you like to do?")
+        time.sleep(0.5)
+        print("========================================")
+        time.sleep(0.5)
+        print("1. View tasks")
+        time.sleep(0.5)
+        print("2. Add a task")
+        time.sleep(0.5)
+        print("3. Remove a task")
+        time.sleep(0.5)
+        print("4. Exit")
+        time.sleep(0.5)
 
-    decision = input("Please enter your choice (1-4): ")
-    time.sleep(1)
-    print(random.choice(processingQuips))
-    time.sleep(1)
-
-    decisionMakingQuip = random.choice(decisionMakingQuips)
-    time.sleep(2)
-    print(decisionMakingQuip["text"])
-    time.sleep(2)
-    if decisionMakingQuip["retry"]:
-        continue
-
-    print("Your decision is :", decision)
-    time.sleep(2)
+# The user can make a decision, and the program will process it
+        decision1 = input("Please enter your choice (1-4): ")
+        time.sleep(1)
+        processingQuip = random.choice(data.processingQuips)
+        print(processingQuip["text"])
+        functions.progress_bar(processingQuip["timer"])
+# After processing, the program will give a quip about the decision made
+        decisionMakingQuip = random.choice(data.decisionMakingQuips)
+        time.sleep(2)
+        print(decisionMakingQuip["text"])
+        time.sleep(2)
+# If the program decides that the decision is not valid, it will make the user retry
+        if decisionMakingQuip["retry"]:
+            continue
+# If that is not the case, it will execute the action
+        print("Your decision is :", decision1)
+        time.sleep(2)
+        action = actions.get(decision1)
+        if action:
+            action()
+# When is action is done, the program will ask if the user wants to do something else
+        print("\n")
+        decision2 = input("Would you like to do something else? (yes/no): ")
+        if decision2 == "yes":
+            continue
+        else:
+            exit()
 
 
 
