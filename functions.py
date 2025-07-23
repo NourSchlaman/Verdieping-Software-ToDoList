@@ -6,6 +6,7 @@ from tqdm import tqdm
 
 
 def view_tasks():
+    data.tasks.sort(key=lambda task: task["priority"], reverse=True)
     print("Here are your tasks:")
     for task in data.tasks:
         print(f"ID: {task['id']}, Name: {task['name']}, Priority: {task['priority']}")

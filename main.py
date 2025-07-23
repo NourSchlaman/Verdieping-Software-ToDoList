@@ -31,7 +31,7 @@ if __name__ == "__main__":
         time.sleep(0.5)
 
 # The user can make a decision, and the program will process it
-        decision = input("Please enter your choice (1-4): ")
+        decision1 = input("Please enter your choice (1-4): ")
         time.sleep(1)
         processingQuip = random.choice(data.processingQuips)
         print(processingQuip["text"])
@@ -45,11 +45,18 @@ if __name__ == "__main__":
         if decisionMakingQuip["retry"]:
             continue
 # If that is not the case, it will execute the action
-        print("Your decision is :", decision)
+        print("Your decision is :", decision1)
         time.sleep(2)
-        action = actions.get(decision)
+        action = actions.get(decision1)
         if action:
             action()
+# When is action is done, the program will ask if the user wants to do something else
+        print("\n")
+        decision2 = input("Would you like to do something else? (yes/no): ")
+        if decision2 == "yes":
+            continue
+        else:
+            exit()
 
 
 

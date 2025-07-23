@@ -3,6 +3,7 @@ tasks = [
     {"id":2 ,"name": "Heel veel aardbeien eten", "priority": 3},
     {"id":3 ,"name": "afvallen", "priority": 10},
 ]
+
 decisionMakingQuips = [
     {"text": "Thank you for your Critical Decision Making", "retry": False},
     {"text": "You thought long and hard about that decision", "retry": False},
