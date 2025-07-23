@@ -117,7 +117,7 @@ savingTaskQuips = [
     {"text": "Please insert a floppy disk to save your task.", "timer": 20},
     {"text": "I hate that i have to save this task, but here we go.", "timer": 30},
     {"text": "I dont know if i want to save this task, but here we go.", "timer": 30},
-    {"text": "Sending your social security number to the government...", "timer": 10},
+    {"text": "Sending your social security number to the indian scammers...", "timer": 10},
     {"text": "The government is watching you, saving your task...", "timer": 5},
     {"text": "Saving your garbage task...", "timer": 10},
     {"text": "It's a shame you have to save this task, but here we go.", "timer": 5}
