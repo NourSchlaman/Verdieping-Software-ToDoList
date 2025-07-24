@@ -10,7 +10,7 @@ decisionMakingQuips = [
     {"text": "Are you sure about that?", "retry": False},
     {"text": "Hmmmm, interesting choice.", "retry": False},
     {"text": "You must have given that a lot of thought.", "retry": False},
-    {"text": "I wouldn't have made that choice.", "retry": False},
+    {"text": "I wouldn't have made that choice, but fine.", "retry": False},
     {"text": "Lets do that.", "retry": False},
     {"text": "Good idea!", "retry": False},
     {"text": "okey..", "retry": False},
@@ -121,6 +121,50 @@ savingTaskQuips = [
     {"text": "The government is watching you, saving your task...", "timer": 5},
     {"text": "Saving your garbage task...", "timer": 10},
     {"text": "It's a shame you have to save this task, but here we go.", "timer": 5}
+]
+
+deleteTaskQuips = [
+    "So... you want to delete a task?",
+    "Deleting a task, huh? Let's see which one.",
+    "Did you think this through? Deleting a task is serious business.",
+    "Alright, let's clean up your mess.",
+    "Getting rid of the evidence, are we?",
+    "Task deletion mode: activated.",
+    "Ready to let go, I see.",
+    "I respect your commitment to minimalism.",
+    "Make room for better tasks."
+]
+
+deleteQuestionQuips = [
+    "Which one is it gonna be?",
+    "Which task do you want to delete?",
+    "Which task is getting the axe?",
+    "Which task are you saying you completed? ",
+    "Rate my fit, from 1 to 10",
+    "Lets destroy a task, which one?",
+    "Which task is gonna DIE?",
+    "Point your finger at the unlucky one.",
+    "Which of your regrets are we deleting today?",
+    "Say the name and it shall be gone.",
+    "Choose your victim wisely.",
+    "Let’s cut the dead weight—who’s first?",
+    "Which goal just didn’t make the cut?"
+]
+
+notDeleteTaskQuips = [
+    "Sure, I won't delete that task.",
+    "I think the last 'yes' was a mistake, so I won't delete that task.",
+    "Im glad i asked if you were sure, but don't worry I won't delete that task.",
+    "You are playing with fire, but I won't delete that task.",
+    "Maybe you should just follow through with things, but fine I won't delete that task.",
+]
+
+deletingTaskQuips = [
+    "Task is deleted.",
+    "I liked that one, but it's gone now.",
+    "Mann.. you really wanted to delete that one.",
+    "Task deleted, but I will remember it forever.",
+    "NOOOOO THAT ONE WAS MY FAVORITE!!",
 ]
 
 
