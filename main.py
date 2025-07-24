@@ -13,8 +13,10 @@ actions = {
 
 if __name__ == "__main__":
 
+    functions.setup()
 # This is the welcome message, and the list options
     print("Welcome to your To-Do list Task Manager Tool")
+
     time.sleep(1)
     while True:
         print("What would you like to do?")

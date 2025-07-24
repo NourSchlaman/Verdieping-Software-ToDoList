@@ -1,8 +1,22 @@
 import random
 import time
+from pathlib import Path
+
 import data
+import os
 from tqdm import tqdm
 
+def setup():
+
+    data.downloadPath = get_downloads_folder()
+    data.filePath = data.downloadPath / "todo_data.json"
+    open(data.downloadPath / "todo_data.json", "w").close()
+
+def get_downloads_folder():
+    if os.name == "nt":
+        return Path(os.environ["USERPROFILE"]) / 'Downloads'
+    else:
+        return Path.home() / 'Downloads'
 
 
 def view_tasks():
