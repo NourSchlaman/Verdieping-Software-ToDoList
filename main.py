@@ -19,7 +19,7 @@ if __name__ == "__main__":
     while True:
         print("What would you like to do?")
         time.sleep(0.8)
-        print("========================================")
+        print("==========================")
         time.sleep(0.3)
         print("1. View tasks")
         time.sleep(0.3)
@@ -32,10 +32,12 @@ if __name__ == "__main__":
 
 # The user can make a decision, and the program will process it
         decision1 = input("Please enter your choice (1-4): ")
-        time.sleep(2)
+        time.sleep(1)
         processingQuip = random.choice(data.processingQuips)
         print(processingQuip["text"])
-        functions.progress_bar(processingQuip["timer"])
+        if random.choice([True, False]):
+            functions.progress_bar(processingQuip["timer"])
+
 
 # The program will check if the decision is valid, and if not, it will give a quip about it and make the user  retry
         if functions.false_user_number_input(decision1, 1, 4) :
