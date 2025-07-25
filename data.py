@@ -1,9 +1,8 @@
-filePath = ""
+filePathJson = ""
+filePathTxt = ""
 downloadPath = ""
 
-tasks = [
-
-]
+tasks = []
 
 decisionMakingQuips = [
     {"text": "Thank you for your Critical Decision Making.", "retry": False},
@@ -168,12 +167,23 @@ deletingTaskQuips = [
     "NOOOOO THAT ONE WAS MY FAVORITE!!",
 ]
 
+exportingTasksQuips = [
+    {"text":"Good luck with that.", "timer": 5},
+    {"text": "What are you exporting? Your procrastination?", "timer": 10},
+    {"text": "Exporting tasks, huh? Good luck with that.", "timer": 8},
+    {"text": "I bet you won't even look at it again.", "timer": 5},
+    {"text": "Yeahh sure, let me work on that for you.", "timer": 10},
+    {"text": "Useless feature, but fine I will export your tasks.", "timer": 18},
+    {"text": "Useless to export, I'm sure you won't ever open the file.", "timer": 5}
+]
+
 
 
 actionOptions = [
     "'1. View tasks'",
     "'2. Add a task'",
     "'3. Remove a task'",
-    "'4. Exit'"
+    "'4. Export tasks'",
+    "'5. Exit'"
 ]
 

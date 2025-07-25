@@ -9,7 +9,14 @@ from tqdm import tqdm
 
 def setup():
     data.downloadPath = get_downloads_folder()
-    data.filePath = data.downloadPath / "todo_data.json"
+    data.filePathJson = data.downloadPath / "todo_data.json"
+    data.filePathTxt = data.downloadPath / "todo_export.txt"
+    if data.filePathJson.exists():
+        load_tasks()
+
+def load_tasks():
+    with open(data.filePathJson, "r") as file:
+        data.tasks = json.load(file)
 
 def get_downloads_folder():
     if os.name == "nt":
@@ -18,27 +25,53 @@ def get_downloads_folder():
         return Path.home() / 'Downloads'
 
 def save_tasks_to_file():
-    with open(data.filePath, "w") as file:
-        json.dump(data.tasks, file, indent=4)
+        with open(data.filePathJson, "w") as file:
+            json.dump(data.tasks, file, indent=4)
 
+
+def export_tasks_to_txt():
+        data.tasks.sort(key=lambda task: task["priority"], reverse=True)
+        with open(data.filePathTxt, "w") as file:
+            for task in data.tasks:
+                file.write(f"ID: {task['id']}, Name: {task['name']}, Priority: {task['priority']}\n")
+
+
+def export_tasks():
+    data.filePathJson = Path(data.filePathJson)
+    if data.filePathJson.exists():
+        exportingTasksQuip = random.choice(data.exportingTasksQuips)
+        print(exportingTasksQuip["text"])
+        progress_bar(exportingTasksQuip["timer"], "Exporting")
+        time.sleep(1.5)
+        export_tasks_to_txt()
+        print("Export complete.")
+        time.sleep(1.5)
+        print(f"Tasks have been exported to {data.filePathTxt}")
+        time.sleep(1.5)
+    else:
+        print("No tasks to export")
 
 def view_tasks():
-    data.tasks.sort(key=lambda task: task["priority"], reverse=True)
-    print("Here are your tasks:")
-    time.sleep(.5)
-    for task in data.tasks:
-        print(f"ID: {task['id']}, Name: {task['name']}, Priority: {task['priority']}")
-        time.sleep(.3)
+    if data.tasks:
+        data.tasks.sort(key=lambda task: task["priority"], reverse=True)
+        print("Here are your tasks:")
+        time.sleep(.5)
+        for task in data.tasks:
+            print(f"ID: {task['id']}, Name: {task['name']}, Priority: {task['priority']}")
+            time.sleep(.3)
+    else:
+        print("No tasks found.")
 
 def add_task():
     validPriority = False
+    time.sleep(1)
     print(random.choice(data.creatingTaskQuips)["text"])
     time.sleep(1.5)
     taskName = input("What should the task be called? -> ")
     creatingTaskNamePriorityQuip = random.choice(data.creatingTaskNamePriorityQuips)
-    time.sleep(2)
+    time.sleep(1.5)
     print(creatingTaskNamePriorityQuip["text-greeting"] + taskName + creatingTaskNamePriorityQuip["text-reaction"])
-    time.sleep(2)
+    time.sleep(1)
     while not validPriority:
         taskPrio = input(creatingTaskNamePriorityQuip["text-prio"])
         if false_user_number_input(taskPrio, 1, 10) :
@@ -48,9 +81,10 @@ def add_task():
 
     if validPriority is True:
         newTask = {"id": auto_increment_id(), "name": taskName, "priority": int(taskPrio)}
-        time.sleep(2)
+        time.sleep(1)
         print("\n")
         print("Your new task will be: ")
+        time.sleep(1)
         print(f"ID: {newTask['id']}, Name: {newTask['name']}, Priority: {newTask['priority']}")
         time.sleep(1)
 
@@ -66,7 +100,7 @@ def add_task():
 def remove_task():
     validId = False
     print(random.choice(data.deleteTaskQuips))
-    time.sleep(2)
+    time.sleep(1)
     view_tasks()
     time.sleep(.5)
     while not validId:
@@ -77,11 +111,11 @@ def remove_task():
             validId = True
 
     task = get_task_by_id(int(toBeDeleted))
-    time.sleep(2)
+    time.sleep(1)
     print("You are about to delete the following task:")
     time.sleep(.5)
     print(f"ID: {task['id']}, Name: {task['name']}, Priority: {task['priority']}")
-    time.sleep(2)
+    time.sleep(1)
 
     delete_conformation(task)
 
