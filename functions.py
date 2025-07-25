@@ -1,3 +1,4 @@
+import json
 import random
 import time
 from pathlib import Path
@@ -7,16 +8,18 @@ import os
 from tqdm import tqdm
 
 def setup():
-
     data.downloadPath = get_downloads_folder()
     data.filePath = data.downloadPath / "todo_data.json"
-    open(data.downloadPath / "todo_data.json", "w").close()
 
 def get_downloads_folder():
     if os.name == "nt":
         return Path(os.environ["USERPROFILE"]) / 'Downloads'
     else:
         return Path.home() / 'Downloads'
+
+def save_tasks_to_file():
+    with open(data.filePath, "w") as file:
+        json.dump(data.tasks, file, indent=4)
 
 
 def view_tasks():
@@ -56,6 +59,7 @@ def add_task():
         time.sleep(.15)
         progress_bar(savingTaskQuip["timer"], "Saving")
         data.tasks.append(newTask)
+        save_tasks_to_file()
 
 
 
