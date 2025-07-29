@@ -1,15 +1,19 @@
 import random
 import time
-from tqdm import tqdm
-import functions
 import data
+from functions import functions
+from functions.functionalities.add_task import add_task
+from functions.functionalities.exit_app import exit_app
+from functions.functionalities.export_tasks import export_tasks
+from functions.functionalities.remove_task import remove_task
+from functions.functionalities.view_tasks import view_tasks
 
 actions = {
-    1: functions.view_tasks,
-    2: functions.add_task,
-    3: functions.remove_task,
-    4: functions.export_tasks,
-    5: functions.exit_app
+    1: view_tasks,
+    2: add_task,
+    3: remove_task,
+    4: export_tasks,
+    5: exit_app
 }
 
 if __name__ == "__main__":
