@@ -19,7 +19,7 @@ It saves your tasks, mocks your procrastination, and refuses to take itself seri
 
 ## 🧠 Requirements
 
-- Python 3.9 or higher  
+- Python 2.7 or higher  
 - OS: macOS, Windows, or Linux
 
 ---
@@ -53,15 +53,6 @@ python main.py
 - All task logic is modularized in `functions.py`
 - App data and constants are stored in `data.py`
 - Quips and sarcasm heavily embedded throughout the app
-
----
-
-## 📦 Build as .EXE (Optional)
-
-
-## 📄 License
-
-This project is for educational or entertainment purposes only. Use, modify, and laugh at your own risk.
 
 ---
 
